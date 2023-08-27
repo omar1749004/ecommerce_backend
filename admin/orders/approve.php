@@ -8,6 +8,6 @@ $data =array(
 );
 updateData("orders" ,$data ,"orders_id  = '$ordersid' AND orders_statuse = 0");
 
-sendGCM("success" , "the order has been Approved" ,"users$usersid" ,"" ,"");
-
-?>
+//sendGCM("success" , "the order has been Approved" ,"users$usersid" ,"" ,"refreshOrderPending");
+insertNotify("success" ,"the order has been Approved", $usersid,"users$usersid","","refreshOrderPending");
+?>  
