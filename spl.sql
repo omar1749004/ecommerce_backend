@@ -18,4 +18,17 @@ CREATE OR REPLACE VIEW cartview as
 SELECT SUM((item_price -(item_price * item_descound / 100))) as itemprice, COUNT(cart_itemsid) as itemcount ,cart.* ,items.* FROM cart 
 INNER JOIN items on items.item_id =cart_itemsid
 where cart_orders =0
-GROUP BY cart_userid ,cart_itemsid
+GROUP BY cart_userid ,cart_itemsid ,cart_orders
+
+
+CREATE OR REPLACE VIEW ordersview as
+SELECT orders.* ,address.* FROM orders 
+LEFT JOIN address ON address.address_id =orders_address
+
+
+CREATE OR REPLACE VIEW ordersdetialsview as
+SELECT SUM((item_price -(item_price * item_descound / 100))) as itemprice, COUNT(cart_itemsid) as itemcount ,cart.* ,items.*, ordersview.* FROM cart 
+INNER JOIN items on items.item_id =cart_itemsid
+INNER JOIN ordersview on ordersview.orders_id =cart.cart_orders
+where cart_orders !=0
+GROUP BY cart_userid ,cart_itemsid,cart_orders
