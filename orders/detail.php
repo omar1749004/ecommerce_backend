@@ -3,7 +3,7 @@
 include "../connect.php" ;
 
 $id = filtter("id");
-getAllData("ordersdetialsview", "orders_id = '$id")
+getAllData("ordersdetialsview", "orders_id = '$id'")
 
 
 

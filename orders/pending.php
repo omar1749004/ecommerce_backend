@@ -5,7 +5,7 @@ include "../connect.php" ;
 $userid =filtter("id") ;
 
 
-getAllData("ordersdetialsview" , "orders_usersid = '$userid'");
+getAllData("ordersview" , "orders_usersid = '$userid'");
 
 
 
