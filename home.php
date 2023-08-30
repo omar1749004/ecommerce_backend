@@ -13,6 +13,9 @@ if($items["status"] =="failure")
 {
     getAllData("itemsview","item_descound != 0",null,false)  ;
 }
+
 $allData['items'] =$items;
+$setting =  getAllData("setting","1=1",null,false)  ;
+$allData['setting'] =$setting;
 echo json_encode($allData);
 ?>
