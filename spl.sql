@@ -34,7 +34,7 @@ where cart_orders !=0
 GROUP BY cart_userid ,cart_itemsid,cart_orders
 
 CREATE or REPLACE VIEW itemTopSellingview as
-SELECT COUNT(cart_id) AS countItem ,cart.* ,items.* from cart
+SELECT COUNT(cart_id) AS countItem ,cart.* ,items.* ,(item_price - (item_price * item_descound / 100)) as item_PriceDiscound from cart
 INNER JOIN items ON cart_itemsid = items.item_id
 WHERE cart_orders != 0 
 GROUP BY cart_itemsid
