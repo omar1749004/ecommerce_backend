@@ -32,3 +32,9 @@ INNER JOIN items on items.item_id =cart_itemsid
 INNER JOIN ordersview on ordersview.orders_id =cart.cart_orders
 where cart_orders !=0
 GROUP BY cart_userid ,cart_itemsid,cart_orders
+
+CREATE or REPLACE VIEW itemTopSellingview as
+SELECT COUNT(cart_id) AS countItem ,cart.* ,items.* from cart
+INNER JOIN items ON cart_itemsid = items.item_id
+WHERE cart_orders != 0 
+GROUP BY cart_itemsid
