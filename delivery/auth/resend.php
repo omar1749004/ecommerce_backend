@@ -1,5 +1,5 @@
 <?php
-include "../connect.php" ;
+include "../../connect.php" ;
 
 $email =filtter("email");
 $users_verfycode = rand(10000,99999);

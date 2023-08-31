@@ -1,5 +1,5 @@
 <?php
-include "../connect.php" ;
+include "../../connect.php" ;
 
 $email =filtter("email");
 $password  =sha1($_POST["password"]);

@@ -1,5 +1,5 @@
 <?php
-include "../connect.php" ;
+include "../../connect.php" ;
 
 $email = filtter("email");
 $verfycode = filtter("verfycode");
