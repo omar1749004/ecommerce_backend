@@ -5,7 +5,8 @@ $ordersid =filtter("ordersid") ;
 $usersid =filtter("usersid");
 $deliveryid =filtter("deliveryid");
 $data =array(
-  "orders_statuse" => 3
+  "orders_statuse" => 3,
+  "orders_deliveryid"=> $deliveryid
 );
 updateData("orders" ,$data ,"orders_id  = '$ordersid' AND orders_statuse = 2");
 
