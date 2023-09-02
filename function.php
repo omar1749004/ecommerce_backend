@@ -220,7 +220,7 @@ function sendGCM($title, $message, $topic, $pageid, $pagename)
 }
 function insertNotify($title ,$body, $userid,$topic,$pageid,$pageName){
  global $connect ;
- $stmt = $connect->prepare("INSERT INTO `notification`(`    n_title`, `notification_body`, `notification_userid`) VALUES (?, ?, ?)");
+ $stmt = $connect->prepare("INSERT INTO `notification`(`notification_title`, `notification_body`, `notification_userid`) VALUES (?, ?, ?)");
  $stmt->execute(array($title ,$body, $userid));
  sendGCM($title , $body ,$topic ,$pageid ,$pageName);
  $count = $stmt->rowCount();
