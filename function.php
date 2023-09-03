@@ -127,10 +127,11 @@ function deleteData($table, $where, $json = true)
     }
     return $count;
 }
-function imageUpload ($imageRequst)
+function imageUpload( $dir  ,$imageRequst)
 {
   global $msgErrore;
-  $imageName =rand(100,10000) . $_FILES[$imageRequst]["name"];
+  if(isset($_FILES[$imageRequst])){
+    $imageName =rand(100,10000) . $_FILES[$imageRequst]["name"];
   $imageTemp =$_FILES[$imageRequst]["tmp_name"];  //المسار الموقت 
   $imageSize =$_FILES[$imageRequst]["size"];
   
@@ -140,7 +141,6 @@ function imageUpload ($imageRequst)
   $ex        = strtolower(end($strtoarr)); 
 if(!empty($imageRequst) && !in_array($ex,$allowEx))
 {
-  
     $msgErrore[] ="Ext";
 }
 if($imageSize > 2 * Mb)
@@ -149,7 +149,7 @@ if($imageSize > 2 * Mb)
 }
 if(empty($msgErrore)){
   
-  move_uploaded_file($imageTemp, "../upload/" . $imageName);
+  move_uploaded_file($imageTemp, $dir ."/". $imageName);
   return $imageName;
 }
 else{
@@ -158,6 +158,10 @@ else{
   echo "<pre>";
   return "fail";
 }
+  }else{
+    return "empty" ;
+  }
+  
 }
 function deleteFile ($dir,$imageNmae)
 {
