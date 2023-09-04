@@ -2,6 +2,6 @@
 
 include "../../connect.php" ;
 
-getAllData("ordersview" , "1=1' AND orders_statuse != 4");
+getAllData("ordersview" , "orders_statuse != 4 AND orders_statuse != 0");
 
 ?>
