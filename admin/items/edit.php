@@ -1,6 +1,7 @@
 <?php
 include "../../connect.php" ;
-
+$id       = filtter("id");
+$name     = filtter("name");
 $name_ar  = filtter("name_ar");
 $desc     = filtter("desc");
 $desc_ar  = filtter("desc_ar");
@@ -22,7 +23,7 @@ if($imagename =="empty"){
         "item_active"   => $active,
         "item_price"    => $price,
         "item_descound" => $descound,
-        "item_c "       => $category,
+        "item_c"       => $category,
         
       );
 }else{
@@ -36,14 +37,14 @@ if($imagename =="empty"){
         "item_active"   => $active,
         "item_price"    => $price,
         "item_descound" => $descound,
-        "item_c "       => $category,
-        "item_image"    => $imageanme
+        "item_c"       => $category,
+        "item_image"    => $imagename
         
       );
       
 }
 
-updateData("categories", $data ,"categories_id = $id") ;
+updateData("items", $data ,"item_id  = $id") ;
 
 
 ?>

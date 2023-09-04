@@ -2,7 +2,7 @@
 
 include "../../connect.php" ;
 
-getAllData("items") ;
+getAllData("itemsview") ;
 
 
 

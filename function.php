@@ -135,7 +135,7 @@ function imageUpload( $dir  ,$imageRequst)
   $imageTemp =$_FILES[$imageRequst]["tmp_name"];  //المسار الموقت 
   $imageSize =$_FILES[$imageRequst]["size"];
   
-  $allowEx   = array("jpg" ,"png" ,"gif" ,"mp3" );
+  $allowEx   = array("jpg" ,"png" ,"gif" ,"mp3","svg" );
   $strtoarr  = explode("." , $imageName);
   $ex        = end($strtoarr);
   $ex        = strtolower(end($strtoarr)); 
@@ -156,7 +156,7 @@ else{
   echo "<pre>";
   print_r($msgErrore);
   echo "<pre>";
-  return "fail";
+  return "failure";
 }
   }else{
     return "empty" ;

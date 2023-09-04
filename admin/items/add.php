@@ -15,7 +15,7 @@ $dateNow  =filtter("dateNow");
 
 $imageanme = imageUpload( "../../upload","files") ;
 
-$data =array(
+$data = array(
   "item_name" => $name,
   "item_name_ar" => $name_ar,
   "item_desc" => $desc,
@@ -24,7 +24,7 @@ $data =array(
   "item_active" => $active,
   "item_price" => $price,
   "item_descound" => $descound,
-  "item_c " => $category,
+  "item_c" => $category,
   "item_date" => $dateNow,
   "item_image" => $imageanme
 );
